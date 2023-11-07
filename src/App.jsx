@@ -5,12 +5,13 @@ import Header from './component/Header'
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route element={<Home />} path='/'/>
-      </Routes>
-    </BrowserRouter>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route element={<Home />} path='/' />
+        </Routes>
+      </BrowserRouter>
+
   )
 }
 
