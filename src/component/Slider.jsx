@@ -18,20 +18,23 @@ const Slider = () => {
 
     }, [Data])
     useEffect(() => {
-        setInterval(() => {
-            while (sliderindex < sliderData.length) {
-                setsliderindex(e => e + 1)
-            }
+
+        if (sliderData.length != 0) {
 
             setInterval(() => {
-                while (sliderindex > 0) {
-                    setsliderindex(e => e - 1)
+                if (sliderindex <= sliderData.length) {
+                    console.log(`slider index : ${sliderindex}`)
+                    setsliderindex(sliderindex + 1)
+                    console.log(`slider data length : ${sliderData.length}`)
                 }
-            }, 1000);
 
-        }, 1000);
+            }, 3000);
 
-    }, [sliderindex])
+
+
+        }
+
+    }, [sliderData,sliderindex])
     return (
         <>
             <p className='text-center font-bold '></p>
