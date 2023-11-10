@@ -38,7 +38,7 @@ const Slider = () => {
                     <div className="slider-wraper text-white absolute h-full flex rounded-3xl duration-1000" style={{ width: `${300 * sliderData.length}px`, left: `${-sliderindex * 200}px` }}>
 
                         {sliderData.map(e =>
-                            <div className='flex py-2 gap-1 flex-col items-center' style={{ width: "300px" }}>
+                            <div key={e.id} className='flex py-2 gap-1 flex-col items-center' style={{ width: "300px" }}>
                                 <p className='font-bold'>{e.name}</p>
                                 <img src={`${e.image}`} alt={`${e.name}`} className='w-16' />
                                 <p className='font-bold'>$ {e.current_price}</p>
