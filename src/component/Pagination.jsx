@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useContext } from 'react'
 import cryptocontext from '../context/cryptocontext'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -16,7 +18,7 @@ const Pagination = () => {
 
     const [paginationData, setpaginationData] = useState([])
 
-    const [currentPage, setcurrentPage] = useState(1)
+    const [currentPage,setcurrentPage] = useState(1)
 
     const elementsPage = 14
     const firstIndex = currentPage * elementsPage - elementsPage
@@ -36,8 +38,6 @@ const Pagination = () => {
             
             if (!fullarray) {
                 for (let i = 1; i < pagesnumber; i++) {
-                    console.log(emptyarray)
-                    
                     setemptyarray(prev => [...prev, i])
     
                 }
@@ -54,7 +54,7 @@ const Pagination = () => {
             setpaginationData(Data.slice(firstIndex, finalIndex))
 
         }
-    }, [Data])
+    }, [Data,currentPage])
 
 
 
@@ -90,10 +90,17 @@ const Pagination = () => {
                         ) : <></>}
                     </tbody>
                 </table>
+                
                 <div className='my-5 flex justify-center'>
-                    {emptyarray.length > 2 ? emptyarray.map(e => {
-                        return(<button className='w-9 text-white bg-[#26262B] h-9 rounded-full mx-1 flex justify-center items-center'>{e}</button>)
+                    <button disabled={currentPage == 1} onClick={() => {setcurrentPage(e => e - 1)}} className='mr-1 w-9 h-9 rounded-full bg-[#26262B] flex justify-center items-center text-white'>
+                        <FontAwesomeIcon icon={faChevronLeft} />
+                    </button>
+                    {emptyarray.length > 2 ? emptyarray.map(ele => {
+                        return(<button  className={`${ele == currentPage ? "opacity-50" : "opacity-100"} w-9 text-white bg-[#26262B] h-9 rounded-full mx-1 flex justify-center items-center`} onClick={(e) => {setcurrentPage(ele)}}>{ele}</button>)
                     }): <></>}
+                    <button onClick={() => {setcurrentPage(e => e + 1)}} disabled={currentPage == emptyarray.length} className='ml-1 w-9 h-9 rounded-full bg-[#26262B] flex justify-center items-center text-white'>
+                        <FontAwesomeIcon icon={faChevronRight} />
+                    </button>
                 </div>
             </div>
         </div>
