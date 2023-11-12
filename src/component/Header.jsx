@@ -38,10 +38,10 @@ const Header = () => {
                 <nav ref={menu} className='z-30 menu absolute w-full duration-1000 opacity-0 md:opacity-100  left-0 -top-48 text-black md:text-white px-10 py-5 md:p-0 bg-white md:bg-transparent md:w-auto md:static md:block'>
                     <ul className='flex-col md:flex-row flex gap-5 text-lg sm:text-xl '>
                         <li>
-                            <Link>Market</Link>
+                            <a href="#market">Market</a>
                         </li>
                         <li>
-                            <Link>Pricing</Link>
+                            <a href='#pricing'>Pricing</a>
                         </li>
                     </ul>
                 </nav>
