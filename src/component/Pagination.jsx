@@ -71,7 +71,7 @@ const Pagination = ({ money }) => {
 
     //change url 
     const changeurl = (id) => {
-        location.href = `coins/${id}`
+        location.pathname = `coins/${id}`
     }
 
 

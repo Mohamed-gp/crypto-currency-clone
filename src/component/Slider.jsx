@@ -24,7 +24,7 @@ const Slider = () => {
     }, [sliderindex])
 
     const changeurl = (id) => {
-        location.href = `coins/${id}`
+        location.pathname = `coins/${id}`
     }
 
     return (

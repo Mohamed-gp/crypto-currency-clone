@@ -45,7 +45,7 @@ const Header = () => {
                         </li>
                     </ul>
                 </nav>
-                <select className='bg-[#26272b] focus:outline-none rounded-lg py-1 px-2' onChange={(e) => changecurrency(e)}>
+                <select className='bg-[#26272b] focus:outline-none rounded-lg py-1 px-2 cursor-pointer' onChange={(e) => changecurrency(e)}>
                     <option value="usd" defaultValue={money == "usd"}>USD</option>
                     <option value="eur" defaultValue={money == "eur"}>EUR</option>
                 </select>
