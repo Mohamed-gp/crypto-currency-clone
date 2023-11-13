@@ -3,7 +3,6 @@ import Hero from '../component/Hero'
 import Slider from '../component/Slider'
 import Pagination from '../component/Pagination'
 import Pricing from '../component/Pricing'
-import Footer from '../component/Footer'
 
 const Home = () => {
   return (
@@ -12,7 +11,6 @@ const Home = () => {
     <Slider/>
     <Pagination/>
     <Pricing/>
-    <Footer/>
     </>
   )
 }

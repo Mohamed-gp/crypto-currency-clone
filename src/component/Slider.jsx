@@ -10,6 +10,7 @@ const Slider = () => {
     const [sliderindex, setsliderindex] = useState(0)
     const [sliderData, setsliderData] = useState([])
 
+    const {moneysymbole} = useContext(cryptocontext)
     useEffect(() => {
         if (Data) {
             setsliderData(Data.slice(0, 10))
@@ -21,6 +22,10 @@ const Slider = () => {
     useEffect(() => {
 
     }, [sliderindex])
+
+    const changeurl = (id) => {
+        location.href = `coins/${id}`
+    }
 
     return (
 
@@ -37,11 +42,11 @@ const Slider = () => {
                 <div className='container px-4 relative h-32  mb-20 overflow-hidden'>
                     <div className="slider-wraper text-white absolute h-full flex rounded-3xl duration-1000" style={{ width: `${300 * sliderData.length}px`, left: `${-sliderindex * 200}px` }}>
 
-                        {sliderData.map(e =>
-                            <div key={e.id} className='flex py-2 gap-1 flex-col items-center' style={{ width: "300px" }}>
+                        {sliderData.map((e,id) =>
+                            <div key={e.id} className='flex py-2 gap-1 flex-col items-center' style={{ width: "300px" }} onClick={() => {changeurl(id)}}>
                                 <p className='font-bold'>{e.name}</p>
                                 <img src={`${e.image}`} alt={`${e.name}`} className='w-16' />
-                                <p className='font-bold'>$ {e.current_price}</p>
+                                <p className='font-bold'>{moneysymbole} {e.current_price}</p>
                             </div>
                         )}
                     </div>

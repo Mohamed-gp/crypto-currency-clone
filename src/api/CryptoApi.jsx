@@ -4,7 +4,14 @@ import cryptocontext from '../context/cryptocontext'
 const CryptoApi = ({ children }) => {
     const [loading, setloading] = useState(true)
     const [money, setmoney] = useState("usd")
-    const [Data,setData] = useState(null)
+    const [Data,setData] = useState([])
+    const [moneysymbole,setmoneysymbole] = useState(null)
+
+    useEffect(() => {
+
+        money == "usd" ? setmoneysymbole("$") : setmoneysymbole("£")
+
+    },[money])
     
 
     useEffect(() => {
@@ -21,12 +28,12 @@ const CryptoApi = ({ children }) => {
             
         }
     
-        getData('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd')
+        getData(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${money}`)
     },[]) 
 
 
   return (
-        <cryptocontext.Provider value={{ money, setmoney, loading,Data}}>
+        <cryptocontext.Provider value={{ money,moneysymbole, setmoney, loading,Data,setData}}>
             {children}
         </cryptocontext.Provider>
     )

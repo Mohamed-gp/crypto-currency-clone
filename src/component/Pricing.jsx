@@ -1,9 +1,12 @@
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import cryptocontext from '../context/cryptocontext'
 
 const Pricing = () => {
     const [pricing, setpricing] = useState("Monthly")
+
+    const $  = useContext(cryptocontext)
     return (
         <>
             <div className="container p-4" id='pricing'>
@@ -67,7 +70,7 @@ const Pricing = () => {
                         <button className='w-full py-2 mt-4 rounded-3xl bg-[#867e9c]  duration-300 hover:bg-[#ae9fd8]'>Choose plan</button>
                     </div>
                     <div style={{height : "410px"}} className='bg-[#231D4F] rounded-xl text-white w-80 flex flex-col justify-center  px-4 py-3 rounded-l-xl'>
-                        <p><span className=' text-3xl font-bold'>{pricing == "Monthly" ? "$89" : "$1020"}</span> /month</p>
+                        <p><span className=' text-3xl font-bold'>$ {pricing == "Monthly" ? "89" : "1020"}</span> /month</p>
                         <p className=' font-bold text-3xl'>Company</p>
                         <p>Unleash the power of automation
                             with strong bench press</p>
